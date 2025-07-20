@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 
-export const runtime = 'edge'  // Add this line
+// Use Node.js runtime instead of edge
+export const runtime = 'nodejs'
 
 export async function GET() {
     try {
@@ -75,6 +76,11 @@ export async function GET() {
             },
         ]
 
-        return NextResponse.json(mockPrices)
+        return new NextResponse(JSON.stringify(mockPrices), {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
     }
 }
