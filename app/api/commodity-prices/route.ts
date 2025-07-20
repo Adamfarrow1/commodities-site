@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server"
 
+export const runtime = 'edge'  // Add this line
+
 export async function GET() {
     try {
         // Temporary mock data since we need a reliable free API
@@ -33,7 +35,12 @@ export async function GET() {
             },
         ]
 
-        return NextResponse.json(mockPrices)
+        return new NextResponse(JSON.stringify(mockPrices), {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            }
+        })
     } catch (error) {
         console.error("Error fetching commodity prices:", error)
 
