@@ -49,9 +49,7 @@ export default function Homepage() {
             onCanPlay={() => console.log("Video can play")}
             onError={(e) => console.error("Video error:", e)}
           >
-            <source src="/videos/home-video.mp4" type="video/mp4" />
-            {/* Add MP4 version for better compatibility */}
-
+            <source src="/videos/home-video-compressed.mp4" type="video/mp4" />
             {/* Fallback image */}
             <Image
               src="/images/logo.png"
