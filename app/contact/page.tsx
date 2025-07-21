@@ -290,8 +290,8 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <h3 className="text-lg font-semibold text-slate-900 mb-2">Call Us</h3>
-                                        <p className="text-slate-600 mb-1">+1 (555) 123-4567</p>
-                                        <p className="text-slate-600">+1 (555) 123-4568 (Trading Desk)</p>
+                                        <p className="text-slate-600 mb-1">+1 (814) 787-2149</p>
+                                        <p className="text-slate-600">+1 (814) 787-2149 (Trading Desk)</p>
                                     </div>
                                 </div>
 
@@ -319,7 +319,7 @@ export default function ContactPage() {
                                     </div>
                                 </div>
 
-                                <div className="flex items-start space-x-4">
+                                {/* <div className="flex items-start space-x-4">
                                     <div className="bg-blue-100 p-3 rounded-lg">
                                         <Linkedin className="h-6 w-6 text-blue-600" />
                                     </div>
@@ -329,7 +329,7 @@ export default function ContactPage() {
                                             LinkedIn Company Page
                                         </Link>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
 
                             {/* Quick Stats */}

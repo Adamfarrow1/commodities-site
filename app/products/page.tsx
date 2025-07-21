@@ -85,7 +85,7 @@ export default function ProductsPage() {
                         className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12 hero-element animate-fade-in-up"
                         style={{ animationDelay: "0.3s" }}
                     >
-                        Premium commodities sourced from Africa, delivered globally with unmatched quality and reliability
+                        Premium commodities delivered globally with unmatched quality and reliability
                     </p>
 
                     {/* Product Flow */}
@@ -151,8 +151,8 @@ export default function ProductsPage() {
                             <div className="bg-slate-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <Award className="h-8 w-8 text-slate-600" />
                             </div>
-                            <h3 className="text-xl font-semibold text-slate-900 mb-2">African Origin</h3>
-                            <p className="text-slate-600">Direct sourcing from premium African mines</p>
+                            <h3 className="text-xl font-semibold text-slate-900 mb-2">Premium Sources</h3>
+                            <p className="text-slate-600">Direct sourcing from premium mining operations</p>
                         </div>
                     </div>
                 </div>
@@ -194,12 +194,12 @@ export default function ProductsPage() {
                                 </div>
                             </div>
 
-                            <div className="bg-blue-50 p-6 rounded-lg mb-6">
+                            <div className="bg-slate-50 p-6 rounded-lg mb-6">
                                 <h4 className="font-semibold text-slate-900 mb-3">Trading Terms</h4>
-                                <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <span className="font-medium text-slate-700">Minimum Order:</span>
-                                        <p className="text-slate-600">1,000 MT</p>
+                                        <p className="text-slate-600">5,000 Metric Tons</p>
                                     </div>
                                     <div>
                                         <span className="font-medium text-slate-700">Contract Period:</span>
@@ -221,7 +221,7 @@ export default function ProductsPage() {
 
                         <div className="relative">
                             <Image
-                                src="/images/aluminum.jpg"
+                                src="/images/aluminum.jpeg"
                                 alt="Aluminum A7 Ingots"
                                 width={600}
                                 height={500}
@@ -243,7 +243,7 @@ export default function ProductsPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div className="order-2 lg:order-1 relative">
                             <Image
-                                src="/images/copper.jpg"
+                                src="/images/copper.jpeg"
                                 alt="Copper Cathodes"
                                 width={600}
                                 height={500}
@@ -288,12 +288,12 @@ export default function ProductsPage() {
                                 </div>
                             </div>
 
-                            <div className="bg-amber-50 p-6 rounded-lg mb-6">
+                            <div className="bg-slate-50 p-6 rounded-lg mb-6">
                                 <h4 className="font-semibold text-slate-900 mb-3">Trading Terms</h4>
-                                <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <span className="font-medium text-slate-700">Minimum Order:</span>
-                                        <p className="text-slate-600">500 MT</p>
+                                        <p className="text-slate-600">1,000 Metric Tons</p>
                                     </div>
                                     <div>
                                         <span className="font-medium text-slate-700">Contract Period:</span>
@@ -352,12 +352,12 @@ export default function ProductsPage() {
                                 </div>
                             </div>
 
-                            <div className="bg-slate-100 p-6 rounded-lg mb-6">
+                            <div className="bg-slate-50 p-6 rounded-lg mb-6">
                                 <h4 className="font-semibold text-slate-900 mb-3">Trading Terms</h4>
-                                <div className="grid grid-cols-2 gap-4 text-sm">
+                                <div className="grid grid-cols-2 gap-4">
                                     <div>
                                         <span className="font-medium text-slate-700">Minimum Order:</span>
-                                        <p className="text-slate-600">50,000 MT</p>
+                                        <p className="text-slate-600">10,000 Metric Tons</p>
                                     </div>
                                     <div>
                                         <span className="font-medium text-slate-700">Contract Period:</span>
@@ -379,7 +379,7 @@ export default function ProductsPage() {
 
                         <div className="relative">
                             <Image
-                                src="/images/coal.jpg"
+                                src="/images/coal.jpeg"
                                 alt="Hard Coking Coal"
                                 width={600}
                                 height={500}

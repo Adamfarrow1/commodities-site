@@ -75,7 +75,7 @@ export default function Homepage() {
                 Global Commodities.
               </span>
               <span className="block text-amber-400 animate-slide-in-left" style={{ animationDelay: "0.4s" }}>
-                African Origin.
+                Global Quality.
               </span>
               <span className="block animate-slide-in-left" style={{ animationDelay: "0.6s" }}>
                 Delivered Worldwide.
@@ -270,7 +270,7 @@ export default function Homepage() {
               <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-400 to-blue-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Image
-                  src="/images/aluminum.jpg"
+                  src="/images/aluminum.jpeg"
                   alt="Aluminum A7"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -310,7 +310,7 @@ export default function Homepage() {
               <div className="h-48 bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-amber-800 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Image
-                  src="/images/copper.jpg"
+                  src="/images/copper.jpeg"
                   alt="Copper Cathodes"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -349,7 +349,7 @@ export default function Homepage() {
               <div className="h-48 bg-gradient-to-br from-slate-600 to-slate-800 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-slate-500 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <Image
-                  src="/images/coal.jpg"
+                  src="/images/coal.jpeg"
                   alt="Hard Coking Coal"
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -654,14 +654,14 @@ export default function Homepage() {
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-blue-400" />
-                  <span className="text-slate-300">+1 (555) 123-4567</span>
+                  <span className="text-slate-300">+1 (814) 787-2149</span>
                 </div>
-                <div className="flex items-center space-x-3">
+                {/* <div className="flex items-center space-x-3">
                   <Linkedin className="h-5 w-5 text-blue-400" />
                   <Link href="#" className="text-slate-300 hover:text-blue-400 transition-colors">
                     LinkedIn Profile
                   </Link>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

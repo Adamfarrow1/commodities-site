@@ -80,7 +80,7 @@ export default function AboutPage() {
                         className="text-xl md:text-2xl text-blue-100 max-w-4xl mx-auto leading-relaxed mb-12 hero-element animate-fade-in-up"
                         style={{ animationDelay: "0.3s" }}
                     >
-                        Leading the global commodities trade with African excellence and worldwide reliability
+                        Leading the global commodities trade with excellence and worldwide reliability
                     </p>
 
                     {/* Company Milestones */}
@@ -120,8 +120,8 @@ export default function AboutPage() {
                                 Our <span className="text-amber-500">Story</span>
                             </h2>
                             <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                                Founded with a vision to bridge African commodity excellence with global demand, we have grown from a
-                                regional supplier to a trusted international partner. Our deep understanding of African markets,
+                                Founded with a vision to provide excellence in global commodities trading, we have grown from a
+                                regional supplier to a trusted international partner. Our deep understanding of international markets,
                                 combined with world-class logistics and quality standards, positions us uniquely in the global
                                 commodities landscape.
                             </p>
@@ -143,7 +143,7 @@ export default function AboutPage() {
                         </div>
                         <div className="relative">
                             <Image
-                                src="/placeholder.svg?height=500&width=600&text=Company+History"
+                                src="/images/diverse-collegues.jpg"
                                 alt="Company history"
                                 width={600}
                                 height={500}
@@ -166,7 +166,7 @@ export default function AboutPage() {
                             </div>
                             <h3 className="text-2xl font-bold text-slate-900 mb-4">Our Mission</h3>
                             <p className="text-slate-600 leading-relaxed">
-                                To be the most trusted bridge between African commodity excellence and global industrial needs,
+                                To be the most trusted partner in global commodities trading,
                                 delivering unmatched quality, reliability, and value through innovative trading solutions and long-term
                                 partnerships.
                             </p>
@@ -206,7 +206,7 @@ export default function AboutPage() {
                     <div className="text-center mb-16">
                         <h2 className="text-4xl font-bold text-slate-900 mb-4">Leadership Team</h2>
                         <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-                            Experienced professionals with deep expertise in commodities trading and African markets
+                            Experienced professionals with deep expertise in global commodities trading
                         </p>
                     </div>
 

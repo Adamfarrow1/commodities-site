@@ -159,7 +159,7 @@ export default function TradeProcessPage() {
                             </div>
                             <div className="relative">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=500&text=LOI+Process"
+                                    src="/images/loi.jpg"
                                     alt="LOI Process"
                                     width={500}
                                     height={400}
@@ -172,7 +172,7 @@ export default function TradeProcessPage() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div className="order-2 lg:order-1 relative">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=500&text=Quote+Process"
+                                    src="/images/market-graph.jpg"
                                     alt="Quote Process"
                                     width={500}
                                     height={400}
@@ -245,7 +245,7 @@ export default function TradeProcessPage() {
                             </div>
                             <div className="relative">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=500&text=Contract+Process"
+                                    src="/images/secure-payment.JPG"
                                     alt="Contract Process"
                                     width={500}
                                     height={400}
@@ -258,7 +258,7 @@ export default function TradeProcessPage() {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                             <div className="order-2 lg:order-1 relative">
                                 <Image
-                                    src="/placeholder.svg?height=400&width=500&text=Delivery+Process"
+                                    src="/images/ship-exporting.jpg"
                                     alt="Delivery Process"
                                     width={500}
                                     height={400}

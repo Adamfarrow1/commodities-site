@@ -24,14 +24,14 @@ export default function Footer() {
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-5 w-5 text-blue-400" />
-                                <span className="text-slate-300">+1 (555) 123-4567</span>
+                                <span className="text-slate-300">+1 (814) 787-2149</span>
                             </div>
-                            <div className="flex items-center space-x-3">
+                            {/* <div className="flex items-center space-x-3">
                                 <Linkedin className="h-5 w-5 text-blue-400" />
                                 <Link href="#" className="text-slate-300 hover:text-blue-400 transition-colors">
                                     LinkedIn Profile
                                 </Link>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

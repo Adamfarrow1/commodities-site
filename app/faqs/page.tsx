@@ -19,7 +19,7 @@ export default function FAQsPage() {
         {
             question: "What are your minimum order quantities?",
             answer:
-                "Our minimum order quantities vary by product: Aluminum A7 requires 1,000 MT minimum, Copper Cathodes require 500 MT minimum, and Hard Coking Coal requires 50,000 MT minimum. These quantities ensure efficient logistics and competitive pricing.",
+                "Our minimum order quantities are: Aluminum A7 - 5,000 Metric Tons, Copper Cathodes - 1,000 Metric Tons, and Hard Coking Coal - 10,000 Metric Tons. These quantities ensure optimal logistics and cost efficiency for international shipments.",
         },
         {
             question: "What payment terms do you accept?",
@@ -215,12 +215,14 @@ export default function FAQsPage() {
                                 Contact Our Specialists
                             </Button>
                         </Link>
-                        <Button
-                            variant="outline"
-                            className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-3 text-lg bg-transparent"
-                        >
-                            Schedule a Call
-                        </Button>
+                        <Link href="/contact">
+                            <Button
+                                variant="outline"
+                                className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-3 text-lg bg-transparent"
+                            >
+                                Schedule a Call
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </section>

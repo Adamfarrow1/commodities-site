@@ -38,7 +38,7 @@ export default function Header({ currentPage = "/" }: HeaderProps) {
                         </div>
                         <div className="flex items-center space-x-2">
                             <Phone className="h-4 w-4 text-amber-400" />
-                            <span>+1 (555) 123-4567</span>
+                            <span>+1 (814) 787-2149</span>
                         </div>
                     </div>
                     <div className="hidden sm:flex items-center space-x-4 text-slate-300">
