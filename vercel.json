@@ -9,7 +9,7 @@
                     "value": "global-commodity-hub.com"
                 }
             ],
-            "permanent": true
+            "statusCode": 301
         }
     ]
 }
