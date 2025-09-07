@@ -1,11 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Mail, Phone, Linkedin, Plus, Minus } from "lucide-react"
+import { Plus, Minus } from "lucide-react"
 import Link from "next/link"
 import { useState, useEffect } from "react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
+import AnimatedSection from "@/components/animated-section"
 
 export default function FAQsPage() {
     const [openFAQ, setOpenFAQ] = useState<number | null>(null)
@@ -86,7 +87,7 @@ export default function FAQsPage() {
                         style={{ animationDelay: "0.5s" }}
                     ></div>
                     <div
-                        className="absolute top-1/4 left-52 w-4 h-4 bg-slate-800 rounded-full animate-pulse-slow"
+                        className="absolute top-1/4 left-52 w-4 h-4 bg-white rounded-full animate-pulse-slow"
                         style={{ animationDelay: "1s" }}
                     ></div>
                     <div
@@ -121,53 +122,51 @@ export default function FAQsPage() {
                 </div>
 
                 <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <div className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 mb-8 hero-element animate-fade-in">
-                        <div className="flex space-x-1 mr-3">
-                            <div className="w-2 h-2 bg-slate-800 rounded-full animate-bounce"></div>
-                            <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
-                            <div
-                                className="w-2 h-2 bg-slate-800 rounded-full animate-bounce"
-                                style={{ animationDelay: "0.2s" }}
-                            ></div>
+                    <AnimatedSection animation="fade-in" delay={300}>
+                        <div className="inline-flex items-center px-6 py-3 bg-white/20 backdrop-blur-sm rounded-full border border-white/30 mb-8">
+                            <div className="flex space-x-1 mr-3">
+                                <div className="w-2 h-2 bg-slate-800 rounded-full animate-bounce"></div>
+                                <div className="w-2 h-2 bg-white rounded-full animate-bounce" style={{ animationDelay: "0.1s" }}></div>
+                                <div
+                                    className="w-2 h-2 bg-slate-800 rounded-full animate-bounce"
+                                    style={{ animationDelay: "0.2s" }}
+                                ></div>
+                            </div>
+                            <span className="text-slate-800 text-sm font-medium">Get Answers</span>
                         </div>
-                        <span className="text-slate-800 text-sm font-medium">Get Answers</span>
-                    </div>
+                    </AnimatedSection>
 
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 hero-element animate-slide-in-up">
-                        Frequently Asked Questions
-                    </h1>
-                    <p
-                        className="text-xl md:text-2xl text-slate-800 max-w-4xl mx-auto leading-relaxed mb-12 hero-element animate-fade-in-up"
-                        style={{ animationDelay: "0.3s" }}
-                    >
-                        Find answers to common questions about our commodities trading process and services
-                    </p>
+                    <AnimatedSection animation="slide-up" delay={900}>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6">
+                            Frequently Asked Questions
+                        </h1>
+                    </AnimatedSection>
+
+                    <AnimatedSection animation="fade-in" delay={700}>
+                        <p className="text-xl md:text-2xl text-slate-800 max-w-4xl mx-auto leading-relaxed mb-12">
+                            Find answers to common questions about our commodities trading process and services
+                        </p>
+                    </AnimatedSection>
 
                     {/* FAQ Categories Flow */}
                     <div className="flex justify-center items-center space-x-4 md:space-x-8">
                         {[
-                            { category: "Trading", icon: "?" },
+                            { category: "Trading", icon: "↗" },
                             { category: "Pricing", icon: "$" },
                             { category: "Delivery", icon: "→" },
                             { category: "Quality", icon: "✓" },
                         ].map((item, index) => (
-                            <div
-                                key={item.category}
-                                className="flex items-center opacity-100 transform translate-y-0"
-                                style={{
-                                    animation: `fadeIn 1s ease-out forwards`,
-                                    animationDelay: `${0.5 + index * 0.2}s`,
-                                    opacity: 0,
-                                }}
-                            >
-                                <div className="text-center">
-                                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center font-bold text-slate-800 text-sm transition-all duration-300 hover:scale-110 mb-2">
-                                        {item.icon}
+                            <AnimatedSection key={item.category} animation="scale-up" delay={900 + index * 200}>
+                                <div className="flex items-center">
+                                    <div className="text-center">
+                                        <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center font-bold text-slate-800 text-sm transition-all duration-300 hover:scale-110 mb-2">
+                                            {item.icon}
+                                        </div>
+                                        <div className="text-slate-800 text-xs">{item.category}</div>
                                     </div>
-                                    <div className="text-slate-800 text-xs">{item.category}</div>
+                                    {index < 3 && <div className="w-8 h-0.5 bg-slate-800/30 mx-2 hidden md:block"></div>}
                                 </div>
-                                {index < 3 && <div className="w-8 h-0.5 bg-slate-800/30 mx-2 hidden md:block"></div>}
-                            </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -178,24 +177,26 @@ export default function FAQsPage() {
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="space-y-4">
                         {faqs.map((faq, index) => (
-                            <div key={index} className="bg-slate-50 rounded-lg border border-slate-200">
-                                <button
-                                    onClick={() => toggleFAQ(index)}
-                                    className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-100 transition-colors duration-200"
-                                >
-                                    <h3 className="text-lg font-semibold text-slate-900 pr-4">{faq.question}</h3>
-                                    {openFAQ === index ? (
-                                        <Minus className="h-5 w-5 text-blue-600 flex-shrink-0" />
-                                    ) : (
-                                        <Plus className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                            <AnimatedSection key={index} animation="slide-up" delay={300 + index * 150}>
+                                <div className="bg-slate-50 rounded-lg border border-slate-200">
+                                    <button
+                                        onClick={() => toggleFAQ(index)}
+                                        className="w-full px-6 py-4 text-left flex justify-between items-center hover:bg-slate-100 transition-colors duration-200"
+                                    >
+                                        <h3 className="text-lg font-semibold text-slate-900 pr-4">{faq.question}</h3>
+                                        {openFAQ === index ? (
+                                            <Minus className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                                        ) : (
+                                            <Plus className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                                        )}
+                                    </button>
+                                    {openFAQ === index && (
+                                        <div className="px-6 pb-4">
+                                            <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                                        </div>
                                     )}
-                                </button>
-                                {openFAQ === index && (
-                                    <div className="px-6 pb-4">
-                                        <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-                                    </div>
-                                )}
-                            </div>
+                                </div>
+                            </AnimatedSection>
                         ))}
                     </div>
                 </div>
@@ -204,25 +205,33 @@ export default function FAQsPage() {
             {/* Contact CTA */}
             <section className="py-20 bg-slate-50">
                 <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                    <h2 className="text-3xl font-bold text-slate-900 mb-4">Still Have Questions?</h2>
-                    <p className="text-lg text-slate-600 mb-8">
-                        Our trade specialists are ready to help you with any specific questions about our commodities or trading
-                        process.
-                    </p>
+                    <AnimatedSection animation="slide-up" delay={300}>
+                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Still Have Questions?</h2>
+                    </AnimatedSection>
+                    <AnimatedSection animation="fade-in" delay={500}>
+                        <p className="text-lg text-slate-600 mb-8">
+                            Our trade specialists are ready to help you with any specific questions about our commodities or trading
+                            process.
+                        </p>
+                    </AnimatedSection>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Link href="/contact">
-                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-                                Contact Our Specialists
-                            </Button>
-                        </Link>
-                        <Link href="/contact">
-                            <Button
-                                variant="outline"
-                                className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-3 text-lg bg-transparent"
-                            >
-                                Schedule a Call
-                            </Button>
-                        </Link>
+                        <AnimatedSection animation="scale-up" delay={700}>
+                            <Link href="/contact">
+                                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
+                                    Contact Our Specialists
+                                </Button>
+                            </Link>
+                        </AnimatedSection>
+                        <AnimatedSection animation="scale-up" delay={900}>
+                            <Link href="/contact">
+                                <Button
+                                    variant="outline"
+                                    className="border-slate-300 text-slate-700 hover:bg-slate-100 px-8 py-3 text-lg bg-transparent"
+                                >
+                                    Schedule a Call
+                                </Button>
+                            </Link>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>

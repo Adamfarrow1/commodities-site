@@ -214,9 +214,7 @@ export default function ProductsPage() {
                                 </div>
                             </div>
 
-                            <Link href="/contact">
-                                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 opacity-0 animate-fade-in" style={{ animationDelay: "0.9s" }}>Request Aluminum Quote</Button>
-                            </Link>
+                            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 opacity-0 animate-fade-in" style={{ animationDelay: "0.9s" }}>Request Aluminum Quote</Button>
                         </div>
 
                         <div className="relative">
@@ -312,9 +310,7 @@ export default function ProductsPage() {
                                 </div>
                             </div>
 
-                            <Link href="/contact">
-                                <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-3 opacity-0 animate-fade-in" style={{ animationDelay: "0.9s" }}>Request Copper Quote</Button>
-                            </Link>
+                            <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-3 opacity-0 animate-fade-in" style={{ animationDelay: "0.9s" }}>Request Copper Quote</Button>
                         </div>
                     </div>
                 </div>
@@ -378,9 +374,7 @@ export default function ProductsPage() {
                                 </div>
                             </div>
 
-                            <Link href="/contact">
-                                <Button className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 opacity-0 animate-fade-in" style={{ animationDelay: "0.9s" }}>Request Coal Quote</Button>
-                            </Link>
+                            <Button className="bg-slate-700 hover:bg-slate-800 text-white px-8 py-3 opacity-0 animate-fade-in" style={{ animationDelay: "0.9s" }}>Request Coal Quote</Button>
                         </div>
 
                         <div className="relative">
@@ -460,12 +454,18 @@ export default function ProductsPage() {
                         Contact our specialists for competitive quotes on Aluminum A7, Copper Cathodes, or Hard Coking Coal.
                         Experience the reliability of African excellence delivered worldwide.
                     </p>
-                    <div className="flex justify-center opacity-0 animate-scale-up" style={{ animationDelay: "0.7s" }}>
+                    <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-scale-up" style={{ animationDelay: "0.7s" }}>
                         <Link href="/contact">
                             <Button className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold px-8 py-4 text-lg">
                                 Get Product Quote
                             </Button>
                         </Link>
+                        <Button
+                            variant="outline"
+                            className="border-white text-white hover:bg-white hover:text-blue-600 px-8 py-4 text-lg bg-transparent"
+                        >
+                            Download Product Specs
+                        </Button>
                     </div>
                 </div>
             </section>

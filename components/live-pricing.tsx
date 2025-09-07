@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { TrendingUp, TrendingDown, Minus, RefreshCw } from "lucide-react"
+import { RefreshCw } from "lucide-react"
 import AnimatedCounter from "./animated-counter"
 
 interface CommodityPrice {
@@ -21,61 +21,22 @@ export default function LivePricing() {
     const [lastRefresh, setLastRefresh] = useState<Date>(new Date())
     const [updatedItems, setUpdatedItems] = useState<Set<string>>(new Set<string>())
 
-    // Mock data for demonstration - replace with actual API calls
-    const mockPrices: CommodityPrice[] = [
-        {
-            symbol: "ALU",
-            name: "Aluminum",
-            price: 2156.5,
-            change: 23.75,
-            changePercent: 1.11,
-            unit: "USD/MT",
-            lastUpdate: new Date().toISOString(),
-        },
-        {
-            symbol: "COP",
-            name: "Copper",
-            price: 8247.25,
-            change: -45.3,
-            changePercent: -0.55,
-            unit: "USD/MT",
-            lastUpdate: new Date().toISOString(),
-        },
-        {
-            symbol: "COAL",
-            name: "Coal",
-            price: 142.8,
-            change: 2.15,
-            changePercent: 1.53,
-            unit: "USD/MT",
-            lastUpdate: new Date().toISOString(),
-        },
-    ]
-
     const fetchPrices = async () => {
         setLoading(true)
         setError(null)
 
         try {
-            // Replace this with actual Trading Economics API calls
-            // const response = await fetch('/api/commodity-prices')
-            // const data = await response.json()
+            const response = await fetch('/api/commodity-prices')
 
-            // Simulate API delay
-            await new Promise((resolve) => setTimeout(resolve, 1000))
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`)
+            }
 
-            // For now, use mock data with slight random variations
-            const updatedPrices = mockPrices.map((price) => ({
-                ...price,
-                price: price.price + (Math.random() - 0.5) * 50,
-                change: (Math.random() - 0.5) * 100,
-                changePercent: (Math.random() - 0.5) * 4,
-                lastUpdate: new Date().toISOString(),
-            }))
+            const data = await response.json()
 
             // Track which items were updated for animation
             const newUpdatedItems = new Set<string>()
-            updatedPrices.forEach((newPrice) => {
+            data.forEach((newPrice: CommodityPrice) => {
                 const oldPrice = prices.find((p) => p.symbol === newPrice.symbol)
                 if (oldPrice && oldPrice.price !== newPrice.price) {
                     newUpdatedItems.add(newPrice.symbol)
@@ -83,14 +44,37 @@ export default function LivePricing() {
             })
 
             setUpdatedItems(newUpdatedItems)
-            setPrices(updatedPrices)
+            setPrices(data)
             setLastRefresh(new Date())
 
             // Clear update indicators after animation
-            // setTimeout(() => setUpdatedItems(new Set()), 2000)
+            setTimeout(() => setUpdatedItems(new Set()), 2000)
         } catch (err) {
             setError("Failed to fetch commodity prices")
             console.error("Error fetching prices:", err)
+
+            // Fallback to mock data on error
+            const fallbackPrices: CommodityPrice[] = [
+                {
+                    symbol: "ALU",
+                    name: "Aluminum",
+                    price: 2156.5,
+                    change: 23.75,
+                    changePercent: 1.11,
+                    unit: "USD/MT",
+                    lastUpdate: new Date().toISOString(),
+                },
+                {
+                    symbol: "XCU",
+                    name: "Copper",
+                    price: 8247.25,
+                    change: -45.3,
+                    changePercent: -0.55,
+                    unit: "USD/MT",
+                    lastUpdate: new Date().toISOString(),
+                },
+            ]
+            setPrices(fallbackPrices)
         } finally {
             setLoading(false)
         }
@@ -105,36 +89,11 @@ export default function LivePricing() {
         return () => clearInterval(interval)
     }, [])
 
-    const formatChange = (change: number) => {
-        const sign = change >= 0 ? "+" : ""
-        return `${sign}${new Intl.NumberFormat("en-US", {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        }).format(change)}`
-    }
-
-    const formatPercent = (percent: number) => {
-        const sign = percent >= 0 ? "+" : ""
-        return `${sign}${percent.toFixed(2)}%`
-    }
-
-    const getTrendIcon = (change: number) => {
-        if (change > 0) return <TrendingUp className="h-4 w-4 text-green-500" />
-        if (change < 0) return <TrendingDown className="h-4 w-4 text-red-500" />
-        return <Minus className="h-4 w-4 text-slate-400" />
-    }
-
-    const getTrendColor = (change: number) => {
-        if (change > 0) return "text-green-600"
-        if (change < 0) return "text-red-600"
-        return "text-slate-600"
-    }
-
     const getGradientColor = (symbol: string) => {
         switch (symbol) {
             case "ALU":
                 return "from-blue-500 to-blue-600"
-            case "COP":
+            case "XCU":
                 return "from-amber-500 to-amber-600"
             case "COAL":
                 return "from-slate-500 to-slate-600"
@@ -208,7 +167,7 @@ export default function LivePricing() {
                 </div>
             ) : (
                 <div className="space-y-4">
-                    {prices.map((commodity, index) => (
+                    {prices.filter(commodity => commodity.symbol !== 'COAL').map((commodity, index) => (
                         <div
                             key={commodity.symbol}
                             className={`flex items-center justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-all duration-300 hover:scale-[1.02] hover:shadow-md animate-slide-in-up`}
@@ -229,44 +188,39 @@ export default function LivePricing() {
                             </div>
 
                             <div className="text-right">
-                                <div className="flex items-center space-x-2">
-                                    <span className="text-lg font-bold text-slate-900">
-                                        $
-                                        <AnimatedCounter value={commodity.price} duration={800} decimals={2} className="" />
-                                    </span>
-                                    <div className={`transform transition-all duration-300`}>{getTrendIcon(commodity.change)}</div>
-                                </div>
-                                <div className={`text-sm ${getTrendColor(commodity.change)} transition-colors duration-300`}>
-                                    <span>
-                                        <AnimatedCounter
-                                            value={commodity.change}
-                                            duration={800}
-                                            decimals={2}
-                                            prefix={commodity.change >= 0 ? "+" : ""}
-                                        />
-                                    </span>
-                                    <span className="ml-1">
-                                        (
-                                        <AnimatedCounter
-                                            value={commodity.changePercent}
-                                            duration={800}
-                                            decimals={2}
-                                            prefix={commodity.changePercent >= 0 ? "+" : ""}
-                                            suffix="%"
-                                        />
-                                        )
-                                    </span>
-                                </div>
+                                <span className="text-lg font-bold text-slate-900">
+                                    $<AnimatedCounter value={commodity.price} duration={800} decimals={2} className="" />
+                                </span>
                             </div>
                         </div>
                     ))}
+
+                    {/* Contact for Coal pricing */}
+                    <div className="flex items-center justify-between p-4 bg-gradient-to-r from-slate-100 to-slate-50 rounded-lg border border-slate-200">
+                        <div className="flex items-center space-x-3">
+                            <div className="w-8 h-8 bg-gradient-to-br from-slate-500 to-slate-600 rounded-full flex items-center justify-center">
+                                <span className="text-white text-xs font-bold">CO</span>
+                            </div>
+                            <div>
+                                <h4 className="font-semibold text-slate-900">Hard Coking Coal</h4>
+                                <p className="text-sm text-slate-500">Contact for pricing</p>
+                            </div>
+                        </div>
+                        <div className="text-right">
+                            <a
+                                href="/contact"
+                                className="text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors duration-300"
+                            >
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
                 </div>
             )}
 
             <div className="mt-6 pt-4 border-t border-slate-200 animate-fade-in-up" style={{ animationDelay: "0.5s" }}>
                 <div className="flex items-center justify-between text-xs text-slate-500">
-                    <span className="animate-pulse">Prices updated every 30 seconds</span>
-                    <span>Source: Trading Economics</span>
+                    <span>Source: Metals API</span>
                 </div>
             </div>
         </div>

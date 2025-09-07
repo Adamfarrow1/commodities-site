@@ -20,7 +20,7 @@ export default function Footer() {
                         <div className="space-y-3">
                             <div className="flex items-center space-x-3">
                                 <Mail className="h-5 w-5 text-blue-400" />
-                                <span className="text-slate-300">contact@company.com</span>
+                                <span className="text-slate-300">jason@global-commodity-hub.com</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <Phone className="h-5 w-5 text-blue-400" />
@@ -39,12 +39,7 @@ export default function Footer() {
                 <div className="border-t border-slate-700 mt-8 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                         <div className="flex space-x-6">
-                            <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
-                                Privacy Policy
-                            </Link>
-                            <Link href="#" className="text-slate-400 hover:text-white transition-colors text-sm">
-                                Terms of Trade
-                            </Link>
+
                         </div>
                         <div className="text-slate-400 text-sm text-center md:text-right">
                             <p>All transactions are subject to mutual confirmation and valid LOI.</p>
